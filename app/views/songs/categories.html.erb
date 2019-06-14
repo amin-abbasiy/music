@@ -1,0 +1,23 @@
+<% @categories.each do |category| %>
+<% @cats = Array.new %>
+<% @cats << category.name %>
+<% end %>
+<script>
+
+
+</script>
+
+<%= form_for cat_path do |f| %>
+<%= f.check_box @categories[0].name %><%= @categories[0].name %>
+<br/>
+<%= f.check_box @categories[1].name %><%= @categories[1].name %>
+<br/>
+<%= f.check_box @categories[2].name %><%= @categories[2].name %>
+<br/>
+<%= f.check_box @categories[3].name %><%= @categories[3].name %>
+<br/>
+<%= f.check_box @categories[4].name %><%= @categories[4].name %>
+<br/>
+<%= f.check_box @categories[5].name %><%= @categories[5].name %>
+<br/>
+<% end  %>

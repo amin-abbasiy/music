@@ -1,0 +1,12 @@
+<% unless current_user == @user %>   
+   <% unless current_user.following?(@user) %>
+        <%= render("follow") %>
+   <% else %>
+        <%= render("unfollow") %>
+        <%= link_to "Message", "#", class: 'start-conversation' %>
+   <% end %>
+<% else %>
+
+<%= link_to :Edit, edit_user_path, class: 'btn btn-success mrg w-25' %>
+
+<% end %>

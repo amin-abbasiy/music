@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <%= link_to "Navbar", root_path, class: 'navbar-brand cl' %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent myNavbar">
+    <ul class="nav navbar-nav mr-auto">
+      <li class="nav-item active">
+      <%= link_to "Home", users_path, class: 'nav-link cl' %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link cl" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle cl" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled cl" href="#">Disabled</a>
+      </li>
+      <% if logged_in? then %>
+      <li><%= link_to "Logout", logout_path, class: 'cl' %></li>
+      <% else %>
+      <li>
+          <%= link_to "Sign Up", signup_path, class: 'cl' %>
+      </li>
+      <li>
+      	<%= link_to "Login", login_path, class: 'cl' %>
+      </li>
+      <% end %>
+    </ul>
+    <div>
+      <%= form_tag("/usearch", method: "get", class: 'form-inline mt') do %>
+           <%= text_field_tag :q, "", class: 'form-control', placeholder: "Find user" %>
+           <%= submit_tag :Users, class: 'btn btn-success glyphicon glyphicon-search' %>
+      <% end %>
+    </div>
+    <%= form_tag("/search", method: "get", class: 'form-inline mt') do %>
+          <%= text_field_tag :s, "", class: 'form-control', placeholder: "Find Anything" %>
+          <%= submit_tag :Search, class: 'btn btn-info' %>
+    <% end %>
+  </div>
+</nav>

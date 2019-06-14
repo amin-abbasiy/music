@@ -1,0 +1,20 @@
+<%= provide(:title, @title) %>
+<%= gravatar_for(@user.email.downcase, 80) %>
+<%= @user.name %>
+<br/>
+<br/>
+<table class="table table-bordered table-dark lft">
+
+<% @users.each do |user| %>
+<tr>
+<td> <%= gravatar_for user.email.downcase, 30 %></td>
+<td> <%= link_to user.name, user %></td>
+<td><%= user.email %></td>
+</tr>
+<% end %>
+
+</table>
+<br/>
+<% if @users.any? then %>
+
+<% end %>

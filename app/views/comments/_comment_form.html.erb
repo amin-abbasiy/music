@@ -1,0 +1,4 @@
+<%= form_for([@song, Comment.new]) do |f| %>
+<%= f.text_area :content, class: 'form-control' %>
+<%= f.submit :Send, class: 'btn btn-info' %>
+<% end %>

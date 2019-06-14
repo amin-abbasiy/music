@@ -1,0 +1,10 @@
+
+<% @songs_find.each do |song| %>
+<%= song.id %> ::
+<%= song.content  %>
+<br/>
+<% if song.picture.url then %>
+<%= image_tag(song.picture.url, class: 'form-margin') %>
+<%= audio_tag song.file.url, controls: true, class: 'form-margin' %>
+<% end %>
+<% end %>

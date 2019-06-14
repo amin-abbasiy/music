@@ -1,0 +1,6 @@
+<br/>
+<% @user ||= current_user %>
+<span class="label label-warning mrg">[<%= @user.followers.count %>]<%= link_to "Followers", followers_user_path(@user), class: 'a' %></span>
+<span class="label label-warning mrg">[<%= @user.following.count %>]<%= link_to "Following", following_user_path(@user), class: 'a' %></span>
+<span class="label label-warning mrg">[<%= @user.songs.count %>] Posts</span>
+<br/>

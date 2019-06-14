@@ -1,0 +1,17 @@
+<%= provide(:title, "Home Music System") %>
+<% @users.each do |user| %>
+ <div class="user_cs">
+<%= gravatar_for(user.email.downcase) %>
+<span class="label label-info stl2"><%= user.name %></span>
+ <% if !user.admin? && current_user.admin? %>
+ <%= link_to "", user, method: :delete, data: {confirm: "Delete!"}, class:'btn btn-danger glyphicon glyphicon-trash' %>
+ <%= link_to "", edit_song_path(current_user.id), class: 'btn btn-warning glyphicon glyphicon-pencil' %>
+ <%= link_to "", "#{deactivated_path}/#{user.id}", class: 'btn btn-primary glyphicon glyphicon-eye-open' %>
+ <% end %>
+  <%= link_to "", "#", class: 'start-conversation btn btn-success glyphicon glyphicon-envelope', "data-sid" => current_user.id, "data-rip" => user.id %>
+ </div>
+<% end %>
+<%=  will_paginate %>
+  <%= react_component 'Users' %>
+
+ 

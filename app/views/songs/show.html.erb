@@ -1,0 +1,24 @@
+<% current_song(@song.id) %>
+<%= gravatar_for(@user.email.downcase, 80) %>
+<%= link_to @user.name, user_path(@song.user_id) %>
+<br/>
+<% if @song.picture.present? then %>
+<%= image_tag @song.picture.url , class: 'form-margin' %>
+<br/>
+<%= audio_tag @song.file.url, controls: true, class: 'form-margin' %>
+<% end %>
+<%= @text %><br/>
+<br/>
+<button class=" btn btn-warning glyphicon glyphicon-heart-empty" onClick=""></button>
+<%= @song.like if @song.like %>
+<span class="form-margin label label-warning">Posted : </span><%= time_ago_in_words(@song.created_at) %> Ago
+<br/>
+Name Song: <%= @song.content %><br/>
+<% @tags.each do |tag|  %>
+<span class="badge">#<%= link_to tag.name, "#{tags_path}?tag=#{tag.name}" %></span>
+<% end %>
+<br/>
+<%= render 'comments/comment_form' %>
+<br/>
+<br/>
+<%= render @comments %>

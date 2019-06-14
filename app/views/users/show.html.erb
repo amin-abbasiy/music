@@ -1,0 +1,43 @@
+<%= provide(:title, "Personal Page") %>
+<div><%= gravatar_for(@user.email.downcase) %></div>
+Username: <div class="label label-default fs"><%= @user.name  %></div>
+<br/>
+E-mail: <div class="label label-default fs"><%= @user.email %></div>
+<% if logged_in? && current_user.id == @user.id then %>
+<%= link_to "Edit", edit_user_path, class: 'btn btn-info' %>
+<%= link_to "+Add", new_song_path, class: 'btn btn-warning' %>
+<br/>
+<%= link_to " Category", usercats_path, class: 'btn btn-primary glyphicon glyphicon-plus' %>
+<br/>
+<% end %>
+<%= render('shared/stats') %>
+<br/>
+<%= render('follow_form') if logged_in? %>
+<br/>
+<br/>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Bio</div>
+      <div class="panel-body"><%= @user.bio %></div>
+    </div>
+
+
+<br/>
+<% if @songs.any? then %>
+<div class="panel panel-default">
+  <div class="panel-body">
+  <span class="label label-info mrg uln">Songs: <%= @user.songs.count %></span>
+  </div>
+</div>
+   <br/>
+   <hr>
+   <%= render(@songs) %>
+   <%= will_paginate @songs %>
+<% end %>
+<br/>
+<% @user.comments.each do |comment| %>
+<%= comment.content %> ||| <%=  comment.user_id %> ||| <%= comment.song_id %>
+<br/>
+<% end %>
+
+
+

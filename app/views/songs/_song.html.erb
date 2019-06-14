@@ -1,0 +1,33 @@
+
+<br/>
+<span class= "form-margin"><%= link_to gravatar_for(song.user.email, 40), song.user %><span>>
+<%= link_to song.user.name, song_path(song.id) %>
+<% if current_user == @user then %>
+<%= link_to "", song, method: :delete, data: {confirm: "Are You Sure"}, class: 'btn btn-danger glyphicon glyphicon-trash' %>
+<%= link_to("", edit_song_path(song.id) , class: 'btn btn-warning glyphicon glyphicon-pencil') %>
+<% end %>
+<br/>
+
+
+
+
+<span class="form-margin"><%= image_tag song.picture.url if song.picture? %></span>
+<br/>
+<br/>
+
+<span class="form-margin">
+<% if song.file? then %>
+<%= audio_tag(song.file.url, controls: true) %>
+<% end %>
+</span>
+<br/>
+
+<span class="form-margin label label-warning">Posted : </span><%= time_ago_in_words(song.created_at) %> Ago
+<br/>
+<% if song.like? then %>
+<%= link_to "", "#{like_path}/?sid=#{song.id}", class: 'glyphicon glyphicon-heart' %>
+<% end %>
+<br/>
+<span class="form-margin well"><%= song.content %></span>
+<br/>
+

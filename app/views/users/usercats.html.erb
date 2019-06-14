@@ -1,0 +1,7 @@
+<%= form_for usercats_path, :html => {:multipart => true} do |f| %>
+    <% Category.all.each do |cat| %>
+        <%= check_box_tag cat.name, cat.id %>
+    <% end %>                     
+<%= f.submit :Add, class: 'btn btn-success glyphicon glyphicon-plus' %>
+<% end %>
+

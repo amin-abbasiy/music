@@ -1,0 +1,8 @@
+<%= provide(:title) %>
+<%= form_for(@song) do |f| %>
+<%= render('error_messages', object: f.object) %>
+<%= f.label :Caption, class: 'label label-info' %>
+<%= f.text_area :caption, class: 'form-control' %>
+<%= f.file_field :file, class: 'file' %>
+<%= f.submit :Create, class: 'btn btn-info' %>
+<% end %>

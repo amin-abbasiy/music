@@ -1,0 +1,14 @@
+<% @songs =  @songs.flatten  %>
+<% @songs.each do |song| %>
+<%= image_tag song.picture.url if song.picture.present? %>
+<br/>
+<% if song.file.present? %>
+<%= audio_tag song.file.url, controls: true, class: 'fix' %>
+<% end %>
+<%= song.content %>
+<br/>
+<br/>
+<% end %>
+<br/>
+
+<%= @tg %>

@@ -1,0 +1,23 @@
+<%= form_for(@user) do |f| %>
+
+                            <div class="form-group input-group">
+                                <%= render("shared/error_messages", object: f.object) %>
+                                <%= f.label :Name, class: 'label label-info stl mrg', style: 'margin-top: 10px;' %>
+                                <%= f.text_field :name, class: 'form-control flt mrg' %>
+                            </div>
+
+                            <div class="form-group input-group">
+                                <%= f.label :email, class: 'label label-info stl mrg' %>
+                                <%= f.email_field :email, class: 'form-control flt mrg' %>
+                            </div>
+
+                            <div class="form-group input-group">
+                                <%= f.label :password, class: 'label label-info stl mrg' %>
+                                <%= f.password_field :password, class: 'form-control flt mrg' %>
+                            </div>
+                            <div class="form-group input-group">
+                                 <%= f.label :Confirm, class: 'label label-info stl mrg' %>
+                                 <%= f.password_field :password_confirmation, class: 'form-control flt mrg' %>
+                            </div>
+                               <%= f.submit yield(:text), class: 'btn btn-info mrg' %>
+<% end %>

@@ -1,0 +1,6 @@
+<%= provide(:title, "ResetPassword") %>
+<%= form_for(:password_reset, url: password_resets_path) do |f| %>
+<%= f.label :Email, class: 'label label-info' %>
+<%= f.email_field :email, class: 'form-control' %>
+<%= f.submit :SendResetMail, class: 'btn btn-info' %>
+<% end %>

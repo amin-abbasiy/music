@@ -1,0 +1,8 @@
+<% if logged_in? then %>
+<div class="sidebar">
+  <%= link_to "Profile", current_user, class: 'btn btn-block btn-info'%>
+  <%= link_to "Users", users_path, class: 'btn btn-block btn-info'%>
+  <%= link_to "MyPage", users_path, class: 'btn btn-block btn-info'%>
+  <%= link_to "Home", root_path, class: 'btn btn-block btn-info'%>
+</div>
+<% end %>

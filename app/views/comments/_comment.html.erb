@@ -1,0 +1,14 @@
+<span class="well">
+<%= gravatar_for(comment.user.email.downcase, 30) %>
+<!-- User: <%= link_to @song.user.name, user_path(comment.song.user_id) %> -->
+<!-- Top line is for post publisher name comment.song.user_id
+ -->
+<!-- Down line is for user leave comment -->
+<% link = find_user(comment.user_id) %>
+<span class="well"><%= link_to link, user_path(comment.user_id) %></span>
+Comment : <%= comment.content %>
+</span>
+<br/>
+<br/>
+<br/>
+<br/>

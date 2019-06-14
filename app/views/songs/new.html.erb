@@ -1,0 +1,18 @@
+<%= provide(:title, "New Music") %>
+<% if logged_in? then %>
+<%= form_for(@song, class: 'form-group') do |f| %>
+<%= render("shared/error_messages", object: f.object) %>
+<%= f.label :Caption, class: 'label label-info' %>
+<%= f.text_area :content, class: 'form-control' %>
+<%= f.label :File, class: 'label label-info' %>
+<%= f.file_field :file, class: 'file' %>
+<%= f.label :Picture, class: 'label label-info' %>
+<%= f.file_field :picture, class: 'file' %>
+<%= select_tag :category, options_for_select(@cats.collect {|cat| [cat.name]}), :prompt => "Select", class: 'form-control', id: 'sel1' %>
+<br/>
+<%= text_area_tag :tags, placeholder: 'Your tags' %>
+<%= f.submit "Add", class: 'btn btn-info' %>
+<% end %>
+<% else %>
+<%= render("session/new") %>
+<% end %>
