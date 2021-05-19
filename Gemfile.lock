@@ -307,7 +307,8 @@ GEM
     private_pub (1.0.3)
       faye
     public_suffix (3.0.2)
-    puma (3.11.4)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -436,7 +437,7 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   pg
   private_pub (~> 1.0, >= 1.0.3)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 5.1.6)
   react-rails (~> 2.4, >= 2.4.7)
   sass-rails (~> 5.0)
